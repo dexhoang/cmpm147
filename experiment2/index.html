@@ -13,6 +13,19 @@
 	<link rel="stylesheet" type="text/css" href="../css/site.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	<style>
+        /* Put your CSS code here */
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #dynamic-image {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
 	<!-- Load jQuery library -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -26,13 +39,23 @@
 	<script type="text/javascript" src="./js/project.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<script>
+        function reimagineClicked() {
+            seed++
+        }
+        $(document).ready(function() {
+            $("#reimagine").click(function() {
+                reimagineClicked();
+            });
+        });
+    </script>
 </head>
 <body>
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 2 - Living Impressions</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
@@ -41,26 +64,42 @@
                 <div class="fullscreen-box">
                     <button id="fullscreen">Fullscreen</button>
                 </div>
+				<div class="reimagine-box">
+                    <button id="reimagine" onclick="reimagineClicked()">Reimagine</button>
+                </div>
 			</div>
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>This project offers a generative, living impression of this inspiring image:</p>
+				<div class="image-container">
+					<img id="dynamic-image" src="https://cdn.glitch.global/c90396c9-17a9-4e9f-a660-9834e3d1736e/northern-lights.jpeg" alt="Northern Lights">
+				</div>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>Relation to inspiring image:
+					<br><br>
+					Color - colors were taken from inspiring image using an [eyedropper tool](https://imagecolorpicker.com/en).
+					<br><br>
+					Primitives - rectangles were used for background, triangles for pine trees, and lines to simulate the Northern Lights.
+					<br><br>
+					Polygons - mountain was created using custom-shaped polygon involving noise() and random() in order to create more texture.
+					<br><br>
+					Generative - positioning of trees and mountains change as seed grows, as well as slight changes in Northern Lights positioning.
+					<br><br>
+					Life - Northern Lights moves across canvas in wavy pattern to simulate real world movement.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>This experiment was largely a success but also had room for improvement. Although I am proud that I was able to replicate the Alaskan Northern Lights as best with my current abilities and knowledge, I felt like with more time and research I could've added more details to my design. However, I am very happy with how my design turned out especially with my Northern Lights and if I had more time I would've done more with my mountain such as adding a snow layer on top and maybe subtle clouds in the background.</p>
 			</div>
 
 		</section>
 		<nav id="links" class="minor-section">
-			<!-- Put link back to homepage here. -->
+			<https://dexhoang.github.io/cmpm147/>
             <ul>
                 <li><a href="../index.html">Home</a></li>
             </ul>
