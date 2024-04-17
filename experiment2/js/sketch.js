@@ -108,7 +108,7 @@ function draw() {
     let y = noiseLevel * noise(nx) + random(10, 20);
     let z = noiseLevel * noise(nx) + random(80, 90);
 
-    line(x, z - yOffset, x, y - yOffset);
+    line(x, z - yOffset + 100, x, y - yOffset);
   }
   
   stroke(lightOverlay);
