@@ -108,7 +108,7 @@ function draw() {
     let y = noiseLevel * noise(nx) + random(10, 20);
     let z = noiseLevel * noise(nx) + random(80, 90);
 
-    line(x, z - yOffset + 100, x, y - yOffset);
+    line(x, z - yOffset + 200, x, y - yOffset);
   }
   
   stroke(lightOverlay);
@@ -119,7 +119,7 @@ function draw() {
     let y = noiseLevel * noise(nx) + 20;
     let z = noiseLevel * noise(nx) + random(80, 90);
 
-    line(x + 5, z - yOffset + 100, x - 5, y - yOffset);
+    line(x + 5, z - yOffset + 200, x - 5, y - yOffset);
   }
   
   randomSeed(seed)
@@ -128,7 +128,7 @@ function draw() {
     let y = noiseLevel * noise(nx) + 20;
     let z = noiseLevel * noise(nx) + random(80, 90);
 
-    line(x - 20, z - yOffset+ 100, x - 20, y - yOffset);
+    line(x - 20, z - yOffset+ 200, x - 20, y - yOffset);
   }
   //xOffset %= width;
   
