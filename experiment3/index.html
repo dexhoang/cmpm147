@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 3 - Alternate Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -32,11 +32,34 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 3 - Alternate Worlds</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
-					<!-- canvas will be added here -->
+					<head>
+						<meta charset="utf-8" />
+						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+						<meta name="viewport" content="width=device-width, initial-scale=1" />
+					
+						<title>Alternate Worlds</title>
+					
+						<script
+						  src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+						  integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+						  crossorigin="anonymous"
+						></script>
+						<script src="/p2_base.js" defer></script>
+						<script src="/p2_solution.js" defer></script>
+					  </head>
+					  <body>
+						<button id="reseedButton">
+						  reseed
+						</button>
+						<span id="seedReport"></span>
+						<hr />
+						<span id="canvasContainer" style="margin: 10px;"></span>
+						<textarea cols="20" rows="20" id="asciiBox" style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;"></textarea>
+					  </body>
 				</div>
                 <div class="fullscreen-box">
                     <button id="fullscreen">Fullscreen</button>
@@ -45,22 +68,22 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>An overworld generator that spawns a secluded village, accompanied by trees and rivers.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>Generator consists of using a grid of code and autotiling logic in order to place the correct tile on the screen. The code "_" represents lands, "." represents rivers, and "t" represents trees.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>I am very happy with my overworld generator overall. It was my first time using autotiling logic so most of my time was spent learning what autotiling is and how it works. However, I was able to implement it to the best of my abilities and I think I did well. If I didn't spend a lot of time doing my autotiling logic, I would've worked more on adding unique designs including roads that connect to each house and making the water animated. </p>
 			</div>
 
 		</section>
 		<nav id="links" class="minor-section">
-			<!-- Put link back to homepage here. -->
+			<https://dexhoang.github.io/cmpm147/>
             <ul>
                 <li><a href="../index.html">Home</a></li>
             </ul>
