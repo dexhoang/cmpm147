@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment X - Subject/Topic</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<style>
+        /* Put your CSS code here */
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #dynamic-image {
+            width: 100%;
+            height: auto;
+        }
+
+		#canvas-container {
+            width: 100%;
+            height: auto;
+        }
+
+		#minor-section {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<script>
+        function reimagineClicked() {
+            seed++
+        }
+        $(document).ready(function() {
+            $("#reimagine").click(function() {
+                reimagineClicked();
+            });
+        });
+    </script>
+	
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 4 - Infinite Swamp</h1>
+
+			<div class="minor-section">
+				<div id="canvas-container">
+					<head>
+						<title>Hello!</title>
+						<meta charset="utf-8" />
+						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+						<meta name="viewport" content="width=device-width, initial-scale=1" />
+						<link rel="stylesheet" href="/style.css" />
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js" integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ==" crossorigin="anonymous"></script>
+						<script src="/xxhash.min.js" defer></script>
+						<script src="/engine.js" defer></script>
+						<script src="/my_world.js" defer></script>
+					  </head>
+					  <body>
+						<div id="container"></div>
+					  </body>
+				</div>
+                <div class="fullscreen-box">
+                    <button id="fullscreen">Fullscreen</button>
+                </div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>This project creates an infinite wetland, inspired by:</p>
+				<div class="image-container">
+					<img id="dynamic-image" src="https://cdn.glitch.global/262f7363-300c-4171-9c99-d60883859e4c/RF_Patanal_garcia_sabino_wetlands_wealth_040-scaled-1.jpg?v=1714524628981" alt="Northern Lights">
+				</div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>The program uses procedural generation algorithms combined with unique hash values created by the user's world key in order to generate different landscapes. I utilized noise() in order to help create different land and water formations when a world key is passed in. I then used time and offset in order to have the water move to help replicate the motion of waves.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>This experiment was largely a success but also had room for improvement. Although I am proud that I was able to replicate the Alaskan Northern Lights as best with my current abilities and knowledge, I felt like with more time and research I could've added more details to my design. However, I am very happy with how my design turned out especially with my Northern Lights and if I had more time I would've done more with my mountain such as adding a snow layer on top and maybe subtle clouds in the background.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Artist Statement</h2>
+				<p>Infinity: I used the infinite extent of my world to represent a wetland:<br><br>
+					
+					Variation in Space: Audience gets to explore the different formation of land and water. <br><br>
+					
+					Variation in Key: Different worlds will have uniquely generated land and water formation, making each world key different from each other.<br><br>
+					
+					Signs of Life: Water in the wetlands is moved in order to simulate the motion of waves. </p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<https://dexhoang.github.io/cmpm147/>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+		
+	</main>
+</body>
+</html>
