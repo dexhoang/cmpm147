@@ -7,7 +7,7 @@
 
 // Constants - User-servicable parts
 // In a longer project I like to put these in a separate file
-let terrainNoiseScale = 0.05;
+let terrainNoiseScale = 0.8;
 let time = 0;
 
 function p3_preload() {}
