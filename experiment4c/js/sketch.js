@@ -7,21 +7,33 @@
 
 // Constants - User-servicable parts
 // In a longer project I like to put these in a separate file
+
+let selectedColor;
+let unselectedColor;
+let selectedWords = [];
+let time = 0;
+
 function p3_preload() {}
 
-function p3_setup() {}
+function p3_setup() {
+  selectedColor = color(255, 0, 0); 
+  unselectedColor = color(0);
+}
 
 let worldSeed;
-let colorOffset = 0;
+let wordList = ["Apple", "Banana", "Orange", "Pear", "Grape", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Pineapple", "Watermelon", "Cantaloupe", "Honeydew", "Kiwi", "Peach", "Plum", "Cherry", "Mango", "Papaya", "Coconut", "Lemon", "Lime", "Grapefruit", "Avocado", "Fig", "Apricot", "Nectarine", "Cranberry", "Pomegranate", "Guava", "Passionfruit", "Lychee", "Dragonfruit", "Persimmon", "Tangerine", "Clementine", "Kumquat", "Blackcurrant", "Cucumber", "Tomato", "Carrot", "Broccoli", "Cauliflower", "Spinach", "Lettuce", "Kale", "Cabbage", "Brussels", "Sprouts", "Asparagus", "Eggplant", "Zucchini", "Bell", "Pepper", "Mushroom", "Onion", "Garlic", "Ginger", "Potato", "Sweetpotato", "Yam", "Beet", "Radish", "Turnip", "Celery", "Fennel", "Leek", "Artichoke", "Okra", "Parsnip", "Rutabaga", "Squash", "Pumpkin", "Chayote", "Jicama", "Scallion", "Bokchoy", "Swisschard", "Kohlrabi", "Endive", "Radicchio", "Watercress", "Arugula", "Collardgreens", "Beetroot", "Chicory", "Parsley", "Dill", "Basil", "Cilantro", "Mint", "Thyme", "Rosemary", "Oregano", "Sage", "Coriander", "Tarragon", "Chives", "Bayleaf", "Lemongrass", "Marjoram", "Lavender", "Dandelion", "Plantain", "Elderberry", "Gooseberry", "Juniper", "Mangosteen", "Noni", "Rhubarb", "Salsify", "Sorrel", "Yucca", "Kiwano", "Quince", "Starfruit", "Tamarind", "Cherimoya", "Feijoa", "Soursop", "Ugli", "Chili", "Tomatillo", "Amaranth", "Purslane", "Fiddlehead", "Lambsquarters", "Gai", "lan", "Nopales", "Borage", "Oysterplant", "Pigweed", "Samphire", "Malabar", "spinach", "Sea", "beet", "Spirulina", "Dulse", "Nori", "Wakame", "Kombu", "Arame", "Hijiki", "Irish", "moss", "Bladderwrack", "Kelp", "Agar", "Carrageenan", "Konjac", "Arrowroot", "Tapioca", "Sago", "Acorn", "Chestnut", "Hazelnut", "Walnut", "Pecan", "Almond", "Cashew", "Macadamia", "Peanut", "Pistachio", "Brazilnut", "Filbert", "Ginkgo", "Nutmeg", "Cinnamon", "Vanilla", "Saffron", "Cardamom", "Galangal", "Turmeric", "Horseradish", "Wasabi", "Mustard", "Anise", "Caraway", "Cumin", "Fenugreek", "Poppyseed", "Sesame", "Bergamot", "Sassafras", "Hibiscus", "Jasmine", "Rose", "Chamomile", "Peppermint", "Spearmint", "Lemonbalm", "Chervil", "Estragon", "Wintergreen", "Safflower", "Soybean", "Sunflower", "Olive", "Canola", "Corn", "Flaxseed", "Palm", "Wheat", "Rice", "Barley", "Oats", "Rye", "Millet", "Quinoa", "Buckwheat", "Flour", "Sugar", "Salt", "Pepper", "Pasta", "Cereal", "Tea", "Coffee", "Spices", "Herbs", "Oil", "Vinegar", "Honey", "Jam", "Syrup", "Soy", "Sauce", "Broth", "Stock", "Beans", "Lentils", "Nuts", "Seeds", "Chips", "Crackers", "Cookies", "Candy", "Chocolate", "Marshmallows", "Popcorn", "Raisins", "Dates", "Flakes", "Breadcrumbs", "Yeast", "Cocoa", "Powder", "Extract", "Baking", "Powder", "Soda", "Cornstarch", "Molasses", "Gelatin", "Pectin", "Condiments", "Pickles", "Olives", "Capers", "Worcestershire", "Mayonnaise", "Ketchup", "Relish", "Salsa", "Hot", "BBQ", "Teriyaki", "Maple", "Marmalade", "Peanut", "Butter", "Almond", "Tahini", "Nutella", "Shortening", "Margarine", "Soup", "Cake", "Pancake", "Waffle", "Brownie", "Cornbread", "Muffin", "Bread", "Frosting", "Gravy", "Pudding", "Jelly", "Instant", "Gelatin", "Fruits", "Vegetables", "Beans", "Tomatoes", "Fish", "Broth", "Beef", "Pork", "Lamb", "Chicken", "Turkey", "Veal", "Venison", "Bison", "Duck", "Goose", "Quail", "Rabbit", "Sausage", "Bacon", "Ham", "Salami", "Pepperoni", "Jerky", "Prosciutto", "Pastrami", "Salmon", "Tuna", "Trout", "Cod", "Halibut", "Swordfish", "Mackerel", "Haddock", "Bass", "Perch", "Snapper", "Catfish", "Sardine", "Anchovy", "Herring", "Tilapia", "Mahi-mahi", "Grouper", "Flounder", "Pollock", "Carp", "Crab", "Lobster", "Shrimp", "Prawn", "Crayfish", "Oyster", "Clam", "Mussel", "Scallop", "Abalone", "Squid", "Octopus", "Cuttlefish", "Sea Urchin", "Sea Cucumber", "Jellyfish", "Kelp", "Seaweed", "Cinnamon", "Turmeric", "Paprika", "Cumin", "Ginger", "Garlic", "Cloves", "Coriander", "Cardamom", "Chili", "Black Pepper", "White Pepper", "Cayenne", "Red Pepper", "Chili Powder", "Curry Powder", "Mustard", "Dill", "Fennel", "Fenugreek", "Allspice", "Bay Leaf", "Oregano", "Thyme", "Rosemary", "Sage", "Marjoram", "Parsley", "Chives", "Tarragon", "Mint", "Cilantro", "Saffron", "Vanilla", "Salt"];
 
 function p3_worldKeyChanged(key) {
   worldSeed = XXH.h32(key, 0);
   noiseSeed(worldSeed);
   randomSeed(worldSeed);
+  
+  selectedWords = {};
+  clicks = {};
 }
 
 function p3_tileWidth() {
-  return 32;
+  return 48;
 }
 function p3_tileHeight() {
   return 16;
@@ -34,37 +46,36 @@ let clicks = {};
 function p3_tileClicked(i, j) {
   let key = [i, j];
   clicks[key] = 1 + (clicks[key] | 0);
-}
-
-function p3_drawBefore() {
-  colorOffset += 0.01;
-}
-
-function p3_drawTile(i, j, cx, cy) {
-  noStroke();
-  let angle = atan2(mouseY-cy, mouseX-cx);
-  let colorShift = sin(frameCount * 0.05 + i * 0.1 + j * 0.1 + colorOffset) * 100;
-
-
-  if (XXH.h32("tile:" + [i, j], worldSeed) % 2 == 0) {
-    fill(63 + colorShift, 29 + colorShift, 104 + colorShift);
-    if (XXH.h32("tile:" + [i, j], worldSeed) % 20 == 0){
-      fill(255);
-      stroke(0);
-      strokeWeight(2);
-      ellipse(0, 0, 50, 50);
-      fill(130, 31, 29 + colorShift);
-      noStroke();
-      ellipse(10 * cos(angle), 10 * sin(angle), 25, 25);
-      fill(0);
-      ellipse(10 * cos(angle), 10 * sin(angle), 15, 15);
-      pop();
-    }
-  } else {
-    fill(0);
+  
+  let wordIndex = XXH.h32("word:" + [i, j], worldSeed) % wordList.length;
+  let selectedWord = wordList[wordIndex];
+  
+  if (!(key in selectedWords)) {
+    selectedWords[key] = {};
   }
   
- 
+  if (selectedWord in selectedWords[key]) {
+    selectedWords[key][selectedWord]--;
+    if (selectedWords[key][selectedWord] === 0) {
+      delete selectedWords[key][selectedWord];
+    }
+  } else {
+    selectedWords[key][selectedWord] = 1;
+  }
+}
+
+function p3_drawBefore() {}
+
+function p3_drawTile(i, j) {
+  noStroke();
+  let yOffset = map(noise(i * 0.5, j * 0.5, time), 0, 1, -10, 10);
+
+  if (XXH.h32("tile:" + [i, j], worldSeed) % 4 == 0) {
+    fill(245, 245, 245);
+  } else {
+    fill(245, 245, 245);
+  }
+
   push();
 
   beginShape();
@@ -76,22 +87,23 @@ function p3_drawTile(i, j, cx, cy) {
 
   let n = clicks[[i, j]] | 0;
   if (n % 2 == 1) {
-    fill(255);
-    stroke(0);
-    strokeWeight(2);
-    ellipse(0, 0, 50, 50);
-    fill(130, 31, 29 + colorShift);
-    noStroke();
-    ellipse(10 * cos(angle), 10 * sin(angle), 25, 25);
-    fill(0);
-    ellipse(10 * cos(angle), 10 * sin(angle), 15, 15);
+    translate(0, yOffset);
   }
+
+  let wordIndex = XXH.h32("word:" + [i, j], worldSeed) % wordList.length;
+  let selectedWord = wordList[wordIndex];
+  let textColor = (clicks[[i, j]] | 0) % 2 == 1 ? selectedColor : unselectedColor;
+
+  fill(textColor);
+  textAlign(CENTER, CENTER);
+  text(selectedWord, 0, 0);
+
   pop();
 }
 
 function p3_drawSelectedTile(i, j) {
-  noFill();
-  stroke(255);
+  noStroke();
+  fill(0, 255, 0, 50);
 
   beginShape();
   vertex(-tw, 0);
@@ -99,22 +111,24 @@ function p3_drawSelectedTile(i, j) {
   vertex(tw, 0);
   vertex(0, -th);
   endShape(CLOSE);
-
-  noStroke();
-  fill(255);
-  text("tile " + [i, j], 0, 0);
 }
 
-function p3_drawAfter() {}
+function p3_drawAfter() {
+  time += 0.01;
+  
+  let selectedWordsList = document.getElementById('selectedWordsList');
+  selectedWordsList.innerHTML = ''; // Clear previous content
 
-
+  for (let key in selectedWords) {
+    let tileWords = selectedWords[key];
+    for (let word in tileWords) {
+      let wordElement = document.createElement('p');
+      wordElement.textContent = word;
+      selectedWordsList.appendChild(wordElement);
+    }
+  }
+}
 "use strict";
-
-/* global p5 */
-/* exported preload, setup, draw, mouseClicked */
-
-// Project base code provided by {amsmith,ikarth}@ucsc.edu
-
 
 let tile_width_step_main; // A width step is half a tile's width
 let tile_height_step_main; // A height step is half a tile's height
@@ -198,17 +212,6 @@ function setup() {
   let canvas = createCanvas(800, 400);
   canvas.parent("container");
 
-  // resize canvas is the page is resized
-
-  // create an instance of the class
-  myInstance = new MyClass("VALUE1", "VALUE2");
-
-  $(window).resize(function() {
-    resizeScreen();
-  });
-  resizeScreen();
-
-
   camera_offset = new p5.Vector(-width / 2, height / 2);
   camera_velocity = new p5.Vector(0, 0);
 
@@ -227,7 +230,9 @@ function setup() {
   });
 
   createP("Arrow keys scroll. Clicking changes tiles.").parent("container");
-
+  
+  createP("Grocery List: ").parent("container");
+  
   rebuildWorld(input.value());
 }
 
@@ -253,7 +258,6 @@ function mouseClicked() {
   return false;
 }
 
-// draw() function is called repeatedly, it's the main animation loop
 function draw() {
   // Keyboard controls!
   if (keyIsDown(LEFT_ARROW)) {
@@ -321,6 +325,7 @@ function draw() {
   }
 }
 
+// Display a discription of the tile at world_x, world_y.
 function describeMouseTile([world_x, world_y], [camera_x, camera_y]) {
   let [screen_x, screen_y] = worldToScreen(
     [world_x, world_y],
@@ -351,6 +356,7 @@ function drawTile([world_x, world_y], [camera_x, camera_y]) {
   }
   pop();
 }
+
 
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {

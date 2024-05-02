@@ -11,6 +11,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: helvetica, arial, sans-serif;
+    margin: 2em;
+    background: rgb(22, 9, 37);
+    color: white;
 }
 
 #canvas-container {

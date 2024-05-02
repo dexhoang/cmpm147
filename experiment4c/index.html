@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment 4 - Infinite Wetland</title>
+	<title>Experiment 4 - Infinite Groceries</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -66,12 +66,12 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment 4 - Infinite Wetland</h1>
+			<h1>Experiment 4 - Infinite Groceries</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
 					<head>
-						<title>Experiment 4 - Infinite Wetland</title>
+						<title>Experiment 4 - Infinite Groceries</title>
 						<meta charset="utf-8" />
 						<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 						<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,6 +83,12 @@
 					  </head>
 					  <body>
 						<div id="container"></div>
+						<div id="container">
+					  <!-- Other content... -->
+					
+					  <div id="selectedWordsList"></div>
+					</div>
+					
 					  </body>
 				</div>
                 <div class="fullscreen-box">
@@ -92,31 +98,28 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>This project creates an infinite wetland, inspired by:</p>
-				<div class="image-container">
-					<img id="dynamic-image" src="https://cdn.glitch.global/262f7363-300c-4171-9c99-d60883859e4c/RF_Patanal_garcia_sabino_wetlands_wealth_040-scaled-1.jpg?v=1714524628981" alt="Northern Lights">
-				</div>
+				<p>This project generates an infinite amount of grocery items for creating grocery lists.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>The program uses procedural generation algorithms combined with unique hash values created by the user's world key in order to generate different landscapes. I utilized noise() in order to help create different land and water formations when a world key is passed in. I then used time and offset in order to have the water move to help replicate the motion of waves.</p>
+				<p>The program uses procedural generation algorithms combined with unique hash values created by the user's world key in order to generate different grocery items. I utilized the hash function given by the instructor in order to shuffle through the grocery items that are placed on each tile. I also created a list that displays the items chosen by the user by using HTML manipulating functions such as .createElement and .textContent.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Overall, I am very happy with how my experiment turned out. I felt like I was able to capture the peacefulness of the wetlands and made it have a nice aethetic. Since this was my first experiment for Experiment 4, I took quite a long time trying to see what each function does and how to use it. If I had more time with this, I would like to add a sway motion to the grass and maybe allow the player to place down animals. </p>
+				<p>I'm very happy with how this experiment turned out. It may be the worst way to write out your grocery list, but I thought it was a fun way to utilize infinite generation and daily life. I was struggling a lot trying to figure out another way to use infinite generation creatively and got inspired by one of the suggestions given by the instructor which was having the tiles be dad jokes. I took this idea and decided to alter it in a way for users to keep track of groceries they want to buy. This experiment wasn't too difficult since this was my third one I did, but I did learn more about indexing in arrays when the user chooses an item. I also learned more about html when I added the grocery list that displays the items the user picked which I thought was cool to learn. I wish I had more time on this experiment in order to touch up the tiles however. One idea I had was categorizing the tiles based on the grocery item they had such as having red tiles represent meat, green tiles represent vegetables, and more. </p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Artist Statement</h2>
-				<p>Infinity: I used the infinite extent of my world to represent a wetland:<br><br>
+				<p>Infinity: I used the infinite extent of my world to represent an infinite display of groceries for creating grocery lists.<br><br>
+
+					Variation of Space: As the audience browses my world, they'll see a variety of different grocery items.<br><br>
 					
-					Variation in Space: Audience gets to explore the different formation of land and water. <br><br>
+					Variation of Key: Different worlds will have different groceries placed on different tiles, allowing for users to shuffle through items.<br><br>
 					
-					Variation in Key: Different worlds will have uniquely generated land and water formation, making each world key different from each other.<br><br>
-					
-					Signs of Life: Water in the wetlands is moved in order to simulate the motion of waves. </p>
+					Signs of Life: Clicking on tiles causes the grocery item to be added to the user's grocery list which will be seen below the generator.</p>
 			</div>
 
 		</section>
