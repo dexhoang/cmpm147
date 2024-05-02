@@ -117,7 +117,7 @@ function p3_drawAfter() {
   time += 0.01;
   
   let selectedWordsList = document.getElementById('selectedWordsList');
-  selectedWordsList.innerHTML = ''; // Clear previous content
+  selectedWordsList.innerHTML = '';
 
   for (let key in selectedWords) {
     let tileWords = selectedWords[key];
